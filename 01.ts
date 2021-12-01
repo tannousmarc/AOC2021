@@ -1,6 +1,5 @@
 import * as utils from "./utils"
 import * as fs from 'fs'
-import { NOTIMP } from "dns";
 
 fs.readFile('inputs/01.txt', 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
     if(err) throw err;
