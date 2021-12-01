@@ -1,21 +1,16 @@
 import * as utils from "./utils"
 import * as fs from 'fs'
+import { NOTIMP } from "dns";
 
 fs.readFile('inputs/01.txt', 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
     if(err) throw err;
 
     const nums = data.split('\n').map(Number);
-    const map: Map<number, number> = new Map();
 
-    for(const a of nums){
-        for(const b of nums){
-            if(a === b)
-                continue;
-            map.set(2020 - a - b, a * b);
-        }
-    }
+    let res = 0;
+    for(let i = 3; i < nums.length; i++)
+        if(nums[i - 3] < nums[i])
+            res++;
 
-    for(const num of nums)
-        if(map.has(num))
-            console.log(map.get(num)! * num);
+    console.log(res);
 });
