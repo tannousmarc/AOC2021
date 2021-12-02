@@ -7,7 +7,7 @@ fs.readFile('inputs/02.txt', 'utf8', (err: NodeJS.ErrnoException | null, data: s
     const instrs = data.split('\n');
     let pos = [0, 0, 0];
 
-    for(let instr of instrs){
+    for(const instr of instrs){
         const [dir, val] = instr.split(" ");
         switch (dir){
             case "forward":
